@@ -18,4 +18,8 @@ https://github.com/zxing/zxing
 A sample Delphi project is provided in the TestApp folder to demonstrate how to use DelphiZXingQRCode. 
 Simply add the DelphiZXIngQRCode.pas to the DelphiZXingQRCodeTestApp Delphi project and compile.
 
-[Provided by Debenu]
+# FMX using #
+
+![Preview](https://github.com/HemulGM/DelphiZXingQRCode/blob/main/Media/screen.png?raw=true)
+
+[Provided by HemulGM]
