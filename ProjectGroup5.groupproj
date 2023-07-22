@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{4F2C59FF-3DAD-4A8E-BA73-332301BCD90A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TestApp\DelphiZXingQRCodeTestApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestAppFMX\DelphiZXingQRCodeTestAppFMX.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DelphiZXingQRCodeTestApp">
+        <MSBuild Projects="TestApp\DelphiZXingQRCodeTestApp.dproj"/>
+    </Target>
+    <Target Name="DelphiZXingQRCodeTestApp:Clean">
+        <MSBuild Projects="TestApp\DelphiZXingQRCodeTestApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DelphiZXingQRCodeTestApp:Make">
+        <MSBuild Projects="TestApp\DelphiZXingQRCodeTestApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DelphiZXingQRCodeTestAppFMX">
+        <MSBuild Projects="TestAppFMX\DelphiZXingQRCodeTestAppFMX.dproj"/>
+    </Target>
+    <Target Name="DelphiZXingQRCodeTestAppFMX:Clean">
+        <MSBuild Projects="TestAppFMX\DelphiZXingQRCodeTestAppFMX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DelphiZXingQRCodeTestAppFMX:Make">
+        <MSBuild Projects="TestAppFMX\DelphiZXingQRCodeTestAppFMX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DelphiZXingQRCodeTestApp;DelphiZXingQRCodeTestAppFMX"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DelphiZXingQRCodeTestApp:Clean;DelphiZXingQRCodeTestAppFMX:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DelphiZXingQRCodeTestApp:Make;DelphiZXingQRCodeTestAppFMX:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

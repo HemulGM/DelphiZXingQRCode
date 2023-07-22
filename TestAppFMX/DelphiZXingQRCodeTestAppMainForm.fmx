@@ -1,0 +1,264 @@
+object Form5: TForm5
+  Left = 0
+  Top = 0
+  Caption = 'Form5'
+  ClientHeight = 541
+  ClientWidth = 821
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    AutoSize = True
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 22.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Text'
+    TabOrder = 4
+    Left = 8
+    Top = 13
+  end
+  object Label2: TLabel
+    AutoSize = True
+    Position.X = 8.000000000000000000
+    Position.Y = 61.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Encoding'
+    TabOrder = 9
+    Left = 8
+    Top = 69
+  end
+  object Label3: TLabel
+    AutoSize = True
+    Position.X = 184.000000000000000000
+    Position.Y = 61.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Quiet zone'
+    TabOrder = 10
+    Left = 184
+    Top = 69
+  end
+  object Label4: TLabel
+    AutoSize = True
+    Position.X = 280.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Preview'
+    TabOrder = 11
+    Left = 296
+    Top = 13
+  end
+  object edtText: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Text = 'Hello world. '#1055#1088#1080#1074#1077#1090', '#1084#1080#1088'?'
+    Position.X = 8.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    OnChangeTracking = edtTextChangeTracking
+    Left = 8
+    Top = 32
+  end
+  object cmbEncoding: TComboBox
+    Items.Strings = (
+      'Auto'
+      'Numeric'
+      'Alphanumeric'
+      'ISO-8859-1'
+      'UTF-8 without BOM'
+      'UTF-8 with BOM')
+    ItemIndex = 4
+    Position.X = 8.000000000000000000
+    Position.Y = 85.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    OnChange = edtTextChangeTracking
+    Left = 8
+    Top = 88
+  end
+  object edtQuietZone: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Text = '0'
+    Position.X = 184.000000000000000000
+    Position.Y = 85.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    OnChangeTracking = edtTextChangeTracking
+    Left = 184
+    Top = 88
+  end
+  object ImageQR: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    ClipChildren = True
+    Position.X = 281.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 532.000000000000000000
+    Size.Height = 500.000000000000000000
+    Size.PlatformDefault = False
+    WrapMode = Center
+  end
+  object SpinBoxSize: TSpinBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 13
+    Cursor = crIBeam
+    Max = 2000.000000000000000000
+    Value = 100.000000000000000000
+    Position.X = 8.000000000000000000
+    Position.Y = 138.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    OnChangeTracking = edtTextChangeTracking
+  end
+  object Label5: TLabel
+    AutoSize = True
+    Position.X = 8.000000000000000000
+    Position.Y = 114.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Size'
+    TabOrder = 7
+    Left = 8
+    Top = 69
+  end
+  object CheckBoxAutoSize: TCheckBox
+    IsChecked = True
+    Position.X = 98.000000000000000000
+    Position.Y = 114.000000000000000000
+    Size.Width = 55.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 15
+    Text = 'Auto'
+    OnChange = edtTextChangeTracking
+  end
+  object Label6: TLabel
+    AutoSize = True
+    Position.X = 8.000000000000000000
+    Position.Y = 168.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Background'
+    TabOrder = 6
+    Left = 8
+    Top = 69
+  end
+  object ComboColorBoxBG: TComboColorBox
+    Color = claNull
+    Position.X = 8.000000000000000000
+    Position.Y = 192.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 16
+    OnChange = edtTextChangeTracking
+  end
+  object Label7: TLabel
+    AutoSize = True
+    Position.X = 8.000000000000000000
+    Position.Y = 222.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Color'
+    TabOrder = 5
+    Left = 8
+    Top = 69
+  end
+  object ComboColorBoxColor: TComboColorBox
+    Color = claBlack
+    Position.X = 8.000000000000000000
+    Position.Y = 246.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    OnChange = edtTextChangeTracking
+  end
+  object Button1: TButton
+    Position.X = 193.000000000000000000
+    Position.Y = 246.000000000000000000
+    StyleLookup = 'refreshtoolbutton'
+    TabOrder = 17
+    Text = 'Button1'
+    OnClick = edtTextChangeTracking
+  end
+  object Label8: TLabel
+    AutoSize = True
+    Position.X = 184.000000000000000000
+    Position.Y = 114.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Kind'
+    TabOrder = 8
+    Left = 8
+    Top = 69
+  end
+  object ComboBoxKind: TComboBox
+    Items.Strings = (
+      'Default'
+      'Square'
+      'Rounded'
+      'Circle'
+      'Lines')
+    ItemIndex = 4
+    Position.X = 184.000000000000000000
+    Position.Y = 138.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 21.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    OnChange = edtTextChangeTracking
+    Left = 8
+    Top = 88
+  end
+  object Rectangle1: TRectangle
+    Corners = [TopRight, BottomLeft]
+    Fill.Color = claWhite
+    Padding.Left = 18.000000000000000000
+    Padding.Top = 18.000000000000000000
+    Padding.Right = 18.000000000000000000
+    Padding.Bottom = 18.000000000000000000
+    Position.X = 32.000000000000000000
+    Position.Y = 312.000000000000000000
+    Size.Width = 193.000000000000000000
+    Size.Height = 193.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = xFF292C55
+    Stroke.Thickness = 10.000000000000000000
+    XRadius = 40.000000000000000000
+    YRadius = 40.000000000000000000
+    object Image1: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Client
+      ClipChildren = True
+      Size.Width = 157.000000000000000000
+      Size.Height = 157.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Center
+    end
+  end
+end

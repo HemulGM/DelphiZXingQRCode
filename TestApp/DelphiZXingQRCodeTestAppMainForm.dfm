@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Delphi port of ZXing QRCode'
   ClientHeight = 282
-  ClientWidth = 534
+  ClientWidth = 538
   Color = clBtnFace
   Constraints.MinHeight = 320
   Constraints.MinWidth = 550
@@ -12,13 +12,11 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignSize = (
-    534
+    538
     282)
-  PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
     Left = 8

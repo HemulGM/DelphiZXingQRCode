@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023.07.22 18:40:14.169,=D:\Projects\#Default\Unit5.pas</Transaction>
+    <Transaction>2023.07.22 18:40:56.900,D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.fmx=D:\Projects\#Default\Unit5.fmx</Transaction>
+    <Transaction>2023.07.22 18:40:56.900,D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas=D:\Projects\#Default\Unit5.pas</Transaction>
+    <Transaction>2023.07.22 18:41:10.019,D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppFMX.dproj=D:\Projects\#Default\Project36.dproj</Transaction>
+    <Transaction>2023.07.22 18:43:40.691,=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas</Transaction>
+    <Transaction>2023.07.22 19:11:19.667,=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\Unit1.pas</Transaction>
+    <Transaction>2023.07.22 19:11:32.477,D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.FMX.pas=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
