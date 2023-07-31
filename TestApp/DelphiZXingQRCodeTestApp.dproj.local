@@ -1,2 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject/>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023.07.31 12:35:11.509,=D:\Projects\#Fork\DelphiZXingQRCode\TestApp\Unit1.pas</Transaction>
+    <Transaction>2023.07.31 12:35:25.424,D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.Vcl.pas=D:\Projects\#Fork\DelphiZXingQRCode\TestApp\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

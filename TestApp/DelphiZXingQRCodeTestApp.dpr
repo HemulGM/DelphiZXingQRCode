@@ -2,7 +2,8 @@ program DelphiZXingQRCodeTestApp;
 
 uses
   Vcl.Forms,
-  DelphiZXingQRCodeTestAppMainForm in 'DelphiZXingQRCodeTestAppMainForm.pas' {Form1};
+  DelphiZXingQRCodeTestAppMainForm in 'DelphiZXingQRCodeTestAppMainForm.pas' {Form1},
+  DelphiZXIngQRCode.Vcl in '..\Source\DelphiZXIngQRCode.Vcl.pas';
 
 {$R *.res}
 

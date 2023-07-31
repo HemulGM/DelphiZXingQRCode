@@ -37,6 +37,9 @@ var
 
 implementation
 
+uses
+  DelphiZXIngQRCode.Vcl;
+
 {$R *.dfm}
 
 procedure TForm1.cmbEncodingChange(Sender: TObject);
@@ -84,20 +87,25 @@ end;
 procedure TForm1.UpdateQR;
 var
   QRCode: TZXingQRCode;
-  Row, Column: Integer;
 begin
   QRCode := TZXingQRCode.Create;
   try
-    QRCode.Data := edtText.Text;
-    QRCode.Encoding := TQRCodeEncoding(cmbEncoding.ItemIndex);
-    QRCode.QuietZone := StrToIntDef(edtQuietZone.Text, 4);
-    QRCodeBitmap.SetSize(QRCode.Rows, QRCode.Columns);
-    for Row := 0 to QRCode.Rows - 1 do
-      for Column := 0 to QRCode.Columns - 1 do
-        if (QRCode.IsBlack[Row, Column]) then
-          QRCodeBitmap.Canvas.Pixels[Column, Row] := clBlack
-        else
-          QRCodeBitmap.Canvas.Pixels[Column, Row] := clWhite;
+    QRCode.BeginUpdate;
+    try
+      QRCode.Data := edtText.Text;
+      QRCode.Encoding := TQRCodeEncoding(cmbEncoding.ItemIndex);
+      QRCode.QuietZone := StrToIntDef(edtQuietZone.Text, 4);
+    finally
+      QRCode.EndUpdate;
+    end;
+
+    //Image
+    var Bitmap := QRCode.GetBitmap(clBlack, clWhite);
+    try
+      QRCodeBitmap.Assign(Bitmap);
+    finally
+      Bitmap.Free;
+    end;
   finally
     QRCode.Free;
   end;
