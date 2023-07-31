@@ -26,6 +26,12 @@ type
 
   T2DBooleanArray = TArray<TArray<Boolean>>;
 
+  {$SCOPEDENUMS ON}
+
+  TQRErrorCorrectionLevel = (L, M, Q, H);
+
+  {$SCOPEDENUMS OFF}
+
   TZXingQRCode = class
   private
     FIsUpdate: Boolean;
@@ -38,9 +44,11 @@ type
     FQuietZone: Integer;
     FElements: T2DBooleanArray;
     FUpdateCount: Integer;
-    procedure SetEncoding(NewEncoding: TQRCodeEncoding);
-    procedure SetData(const NewData: WideString);
-    procedure SetQuietZone(NewQuietZone: Integer);
+    FErrorCorrectionLevel: TQRErrorCorrectionLevel;
+    procedure SetEncoding(const Value: TQRCodeEncoding);
+    procedure SetData(const Value: WideString);
+    procedure SetQuietZone(const Value: Integer);
+    procedure SetErrorCorrectionLevel(const Value: TQRErrorCorrectionLevel);
     function GetIsBlack(Row, Column: Integer): Boolean;
     procedure Update;
   public
@@ -52,6 +60,7 @@ type
     property Data: WideString read FData write SetData;
     property Encoding: TQRCodeEncoding read FEncoding write SetEncoding;
     property QuietZone: Integer read FQuietZone write SetQuietZone;
+    property ErrorCorrectionLevel: TQRErrorCorrectionLevel read FErrorCorrectionLevel write SetErrorCorrectionLevel;
     //out
     property Rows: Integer read FRows;
     property Columns: Integer read FColumns;
@@ -197,7 +206,23 @@ type
   public
     procedure Assign(Source: TErrorCorrectionLevel);
     function Ordinal: Integer;
-    property Bits: Integer read FBits;
+    property Bits: Integer read FBits write FBits;
+    /// <summary>
+    /// ~7% correction
+    /// </summary>
+    class function L: TErrorCorrectionLevel; inline;
+    /// <summary>
+    /// ~15% correction
+    /// </summary>
+    class function M: TErrorCorrectionLevel; inline;
+    /// <summary>
+    /// ~25% correction
+    /// </summary>
+    class function Q: TErrorCorrectionLevel; inline;
+    /// <summary>
+    /// ~30% correction
+    /// </summary>
+    class function H: TErrorCorrectionLevel; inline;
   end;
 
   TECB = class
@@ -2106,9 +2131,44 @@ begin
   FBits := Source.FBits;
 end;
 
+class function TErrorCorrectionLevel.H: TErrorCorrectionLevel;
+begin
+  Result := TErrorCorrectionLevel.Create;
+  Result.Bits := 2;
+end;
+
+class function TErrorCorrectionLevel.L: TErrorCorrectionLevel;
+begin
+  Result := TErrorCorrectionLevel.Create;
+  Result.Bits := 1;
+end;
+
+class function TErrorCorrectionLevel.M: TErrorCorrectionLevel;
+begin
+  Result := TErrorCorrectionLevel.Create;
+  Result.Bits := 0;
+end;
+
+class function TErrorCorrectionLevel.Q: TErrorCorrectionLevel;
+begin
+  Result := TErrorCorrectionLevel.Create;
+  Result.Bits := 3;
+end;
+
 function TErrorCorrectionLevel.Ordinal: Integer;
 begin
-  Result := 0;
+  case FBits of
+    1:
+      Result := 0;
+    0:
+      Result := 1;
+    3:
+      Result := 2;
+    2:
+      Result := 3;
+  else
+    Result := 0;
+  end;
 end;
 
 { TVersion }
@@ -2853,10 +2913,10 @@ begin
   begin
     // Leading term must be non-zero for anything except the constant polynomial "0"
     FirstNonZero := 1;
-    while ((FirstNonZero < CoefficientsLength) and (ACoefficients[FirstNonZero] = 0)) do
+    while (FirstNonZero < CoefficientsLength) and (ACoefficients[FirstNonZero] = 0) do
       Inc(FirstNonZero);
 
-    if (FirstNonZero = CoefficientsLength) then
+    if FirstNonZero = CoefficientsLength then
       FCoefficients := AField.GetZero.Coefficients
     else
     begin
@@ -3112,18 +3172,29 @@ begin
     Result := 0;
 end;
 
-function GenerateQRCode(const Input: WideString; EncodeOptions: Integer): T2DBooleanArray;
+function GenerateQRCode(const Input: WideString; EncodeOptions: Integer; CorrectLevel: TQRErrorCorrectionLevel): T2DBooleanArray;
 var
   Encoder: TEncoder;
   Level: TErrorCorrectionLevel;
   QRCode: TQRCode;
   X, Y: Integer;
 begin
-  Level := TErrorCorrectionLevel.Create;
+  case CorrectLevel of
+    TQRErrorCorrectionLevel.L:
+      Level := TErrorCorrectionLevel.L;
+    TQRErrorCorrectionLevel.M:
+      Level := TErrorCorrectionLevel.M;
+    TQRErrorCorrectionLevel.Q:
+      Level := TErrorCorrectionLevel.Q;
+    TQRErrorCorrectionLevel.H:
+      Level := TErrorCorrectionLevel.H;
+  else
+    Level := TErrorCorrectionLevel.Create;
+    Level.Bits := 1;
+  end;
   Encoder := TEncoder.Create;
   QRCode := TQRCode.Create;
   try
-    Level.FBits := 1;
     Encoder.Encode(Input, EncodeOptions, Level, QRCode);
     if Assigned(QRCode.FMatrix) then
     begin
@@ -3157,6 +3228,7 @@ begin
   FQuietZone := 4;
   FRows := 0;
   FColumns := 0;
+  FErrorCorrectionLevel := TQRErrorCorrectionLevel.L;
 end;
 
 procedure TZXingQRCode.EndUpdate;
@@ -3176,20 +3248,29 @@ begin
     Result := False;
 end;
 
-procedure TZXingQRCode.SetData(const NewData: WideString);
+procedure TZXingQRCode.SetData(const Value: WideString);
 begin
-  if FData <> NewData then
+  if FData <> Value then
   begin
-    FData := NewData;
+    FData := Value;
     Update;
   end;
 end;
 
-procedure TZXingQRCode.SetEncoding(NewEncoding: TQRCodeEncoding);
+procedure TZXingQRCode.SetEncoding(const Value: TQRCodeEncoding);
 begin
-  if FEncoding <> NewEncoding then
+  if FEncoding <> Value then
   begin
-    FEncoding := NewEncoding;
+    FEncoding := Value;
+    Update;
+  end;
+end;
+
+procedure TZXingQRCode.SetErrorCorrectionLevel(const Value: TQRErrorCorrectionLevel);
+begin
+  if FErrorCorrectionLevel <> Value then
+  begin
+    FErrorCorrectionLevel := Value;
     Update;
   end;
 end;
@@ -3199,11 +3280,11 @@ begin
   FIsUpdate := Value;
 end;
 
-procedure TZXingQRCode.SetQuietZone(NewQuietZone: Integer);
+procedure TZXingQRCode.SetQuietZone(const Value: Integer);
 begin
-  if (FQuietZone <> NewQuietZone) and (NewQuietZone >= 0) and (NewQuietZone <= 100) then
+  if (FQuietZone <> Value) and (Value >= 0) and (Value <= 100) then
   begin
-    FQuietZone := NewQuietZone;
+    FQuietZone := Value;
     Update;
   end;
 end;
@@ -3212,7 +3293,7 @@ procedure TZXingQRCode.Update;
 begin
   if IsUpdate then
     Exit;
-  FElements := GenerateQRCode(FData, Ord(FEncoding));
+  FElements := GenerateQRCode(FData, Ord(FEncoding), FErrorCorrectionLevel);
   FRows := Length(FElements) + FQuietZone * 2;
   FColumns := FRows;
 end;

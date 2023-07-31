@@ -30,6 +30,10 @@ type
     ComboBoxKind: TComboBox;
     Rectangle1: TRectangle;
     Image1: TImage;
+    Path1: TPath;
+    Path2: TPath;
+    Label9: TLabel;
+    ComboBoxErrorCorrection: TComboBox;
     procedure edtTextChangeTracking(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -67,6 +71,7 @@ begin
     try
       QRCode.Data := edtText.Text;
       QRCode.Encoding := TQRCodeEncoding(cmbEncoding.ItemIndex);
+      QRCode.ErrorCorrectionLevel := TQRErrorCorrectionLevel(ComboBoxErrorCorrection.ItemIndex);
       QRCode.QuietZone := StrToIntDef(edtQuietZone.Text, 4);
     finally
       QRCode.EndUpdate;
