@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   DelphiZXIngQRCode, FMX.ListBox, FMX.Edit, FMX.Objects,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.EditBox, FMX.SpinBox, FMX.Colors;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.EditBox, FMX.SpinBox, FMX.Colors,
+  FMX.Layouts;
 
 type
   TForm5 = class(TForm)
@@ -17,10 +18,6 @@ type
     edtText: TEdit;
     cmbEncoding: TComboBox;
     edtQuietZone: TEdit;
-    ImageQR: TImage;
-    SpinBoxSize: TSpinBox;
-    Label5: TLabel;
-    CheckBoxAutoSize: TCheckBox;
     Label6: TLabel;
     ComboColorBoxBG: TComboColorBox;
     Label7: TLabel;
@@ -29,11 +26,19 @@ type
     Label8: TLabel;
     ComboBoxKind: TComboBox;
     Rectangle1: TRectangle;
-    Image1: TImage;
+    ImageQRMini: TImage;
     Path1: TPath;
     Path2: TPath;
     Label9: TLabel;
     ComboBoxErrorCorrection: TComboBox;
+    GridPanelLayout1: TGridPanelLayout;
+    PathQR: TPath;
+    Layout1: TLayout;
+    ImageQR: TImage;
+    Layout2: TLayout;
+    Label5: TLabel;
+    SpinBoxSize: TSpinBox;
+    CheckBoxAutoSize: TCheckBox;
     procedure edtTextChangeTracking(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -76,6 +81,8 @@ begin
     finally
       QRCode.EndUpdate;
     end;
+
+    //Image
     var Size: Integer;
     if CheckBoxAutoSize.IsChecked then
       Size := Trunc(Min(ImageQR.Width, ImageQR.Height))
@@ -84,10 +91,21 @@ begin
     var Bitmap: TBitmap := QRCode.GetBitmap(Size, ComboColorBoxColor.Color, ComboColorBoxBG.Color, TQRKind(ComboBoxKind.ItemIndex));
     try
       ImageQR.Bitmap.Assign(Bitmap);
-      Image1.Bitmap.Assign(Bitmap);
     finally
       Bitmap.Free;
     end;
+
+    // Image mini
+    Bitmap := QRCode.GetBitmap(Trunc(Min(ImageQRMini.Width, ImageQRMini.Height)), ComboColorBoxColor.Color, ComboColorBoxBG.Color, TQRKind(ComboBoxKind.ItemIndex));
+    try
+      ImageQRMini.Bitmap.Assign(Bitmap);
+    finally
+      Bitmap.Free;
+    end;
+
+    //Path
+    PathQR.Fill.Color := ComboColorBoxColor.Color;
+    PathQR.Data.Data := QRCode.GetPath(TQRKind(ComboBoxKind.ItemIndex));
   finally
     QRCode.Free;
   end;
