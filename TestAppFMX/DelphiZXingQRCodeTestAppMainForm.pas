@@ -128,21 +128,16 @@ begin
     PathQR.Data.Data := PathData;
 
     //SVG
-    var SVG := TSkSvgBrush.Create;
-    try
-      CreateSVG('output.svg', 500, 500,
-        procedure(const ACanvas: ISkCanvas; const ADest: TRectF)
-        var
-          LPaint: ISkPaint;
-          LPath: ISkPath;
-        begin
-          LPaint := TSkPaint.Create;
-          LPath := TSkPath.Create(PathData);
-          ACanvas.DrawPath(LPath, LPaint);
-        end);
-    finally
-      SVG.Free;
-    end;
+    CreateSVG('output.svg', 500, 500,
+      procedure(const ACanvas: ISkCanvas; const ADest: TRectF)
+      var
+        LPaint: ISkPaint;
+        LPath: ISkPath;
+      begin
+        LPaint := TSkPaint.Create;
+        LPath := TSkPath.Create(PathData);
+        ACanvas.DrawPath(LPath, LPaint);
+      end);
   finally
     QRCode.Free;
   end;
