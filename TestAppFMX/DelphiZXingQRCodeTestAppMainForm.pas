@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   DelphiZXIngQRCode, FMX.ListBox, FMX.Edit, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.EditBox, FMX.SpinBox, FMX.Colors,
-  FMX.Layouts;
+  FMX.Layouts, System.Skia, FMX.Skia;
 
 type
   TForm5 = class(TForm)
@@ -39,6 +39,7 @@ type
     Label5: TLabel;
     SpinBoxSize: TSpinBox;
     CheckBoxAutoSize: TCheckBox;
+    SkSvg1: TSkSvg;
     procedure edtTextChangeTracking(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -64,6 +65,24 @@ end;
 procedure TForm5.FormCreate(Sender: TObject);
 begin
   UpdateQR;
+end;
+
+type
+  TSkDrawProc = reference to procedure(const ACanvas: ISkCanvas; const ADest: TRectF);
+
+procedure CreateSVG(const AOutputFileName: string; const AWidth, AHeight: Integer; const ADrawProc: TSkDrawProc);
+var
+  LStream: TStream;
+  LCanvas: ISkCanvas;
+begin
+  LStream := TFileStream.Create(AOutputFileName, fmCreate);
+  try
+    LCanvas := TSkSVGCanvas.Make(RectF(0, 0, AWidth, AHeight), LStream, [TSkSVGCanvasFlag.ConvertTextToPaths]);
+    ADrawProc(LCanvas, RectF(0, 0, AWidth, AHeight));
+    LCanvas := nil;
+  finally
+    LStream.Free;
+  end;
 end;
 
 procedure TForm5.UpdateQR;
@@ -103,9 +122,27 @@ begin
       Bitmap.Free;
     end;
 
+    var PathData := QRCode.GetPath(TQRKind(ComboBoxKind.ItemIndex), 500);
     //Path
     PathQR.Fill.Color := ComboColorBoxColor.Color;
-    PathQR.Data.Data := QRCode.GetPath(TQRKind(ComboBoxKind.ItemIndex));
+    PathQR.Data.Data := PathData;
+
+    //SVG
+    var SVG := TSkSvgBrush.Create;
+    try
+      CreateSVG('output.svg', 500, 500,
+        procedure(const ACanvas: ISkCanvas; const ADest: TRectF)
+        var
+          LPaint: ISkPaint;
+          LPath: ISkPath;
+        begin
+          LPaint := TSkPaint.Create;
+          LPath := TSkPath.Create(PathData);
+          ACanvas.DrawPath(LPath, LPaint);
+        end);
+    finally
+      SVG.Free;
+    end;
   finally
     QRCode.Free;
   end;

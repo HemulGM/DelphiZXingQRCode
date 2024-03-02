@@ -449,4 +449,8 @@ object Form5: TForm5
       end
     end
   end
+  object SkSvg1: TSkSvg
+    Position.X = 520.000000000000000000
+    Position.Y = 280.000000000000000000
+  end
 end

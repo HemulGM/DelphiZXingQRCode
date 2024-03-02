@@ -12,45 +12,64 @@ File_9=TSourceModule,'D:\Projects\#Styles\MaterialDesign3\Demo\Unit5.pas',0,1,55
 File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Styles.Switch.pas',0,1,835,1,855,0,0,,
 File_11=TSourceModule,'c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.StdCtrls.pas',0,1,1725,1,1919,0,0,,
 File_12=TSourceModule,'c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Controls.pas',0,1,5644,1,5663,0,0,{{692,4}
-File_13=TSourceModule,'c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Objects.pas',0,1,136,1,155,0,0,,
 
 [Modules]
-Module0=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas
-Module1=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.FMX.pas
-Module2=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas
-Module3=c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Graphics.pas
-Module4=D:\Projects\#Fork\DelphiZXingQRCode\TestApp\DelphiZXingQRCodeTestAppMainForm.pas
-Module5=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\RTL\SYS\System.pas
-Count=6
+Module0=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas
+Module1=D:\Projects\#Fork\DelphiZXingQRCode\TestApp\DelphiZXingQRCodeTestAppMainForm.pas
+Module2=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.Vcl.pas
+Module3=c:\program files (x86)\embarcadero\studio\22.0\source\rtl\common\System.UITypes.pas
+Module4=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.FMX.pas
+Module5=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\VCL\Vcl.Graphics.pas
+Module6=c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Objects.pas
+Module7=c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Graphics.pas
+Module8=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas
+Module9=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\RTL\SYS\System.pas
+Count=10
 EditWindowCount=1
 
-[D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas]
+[D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas]
+ModuleType=TSourceModule
+
+[D:\Projects\#Fork\DelphiZXingQRCode\TestApp\DelphiZXingQRCodeTestAppMainForm.pas]
+ModuleType=TSourceModule
+
+[D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.Vcl.pas]
+ModuleType=TSourceModule
+
+[c:\program files (x86)\embarcadero\studio\22.0\source\rtl\common\System.UITypes.pas]
 ModuleType=TSourceModule
 
 [D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.FMX.pas]
 ModuleType=TSourceModule
 
-[D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas]
+[c:\program files (x86)\embarcadero\studio\22.0\SOURCE\VCL\Vcl.Graphics.pas]
+ModuleType=TSourceModule
+
+[c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Objects.pas]
 ModuleType=TSourceModule
 
 [c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Graphics.pas]
 ModuleType=TSourceModule
 
-[D:\Projects\#Fork\DelphiZXingQRCode\TestApp\DelphiZXingQRCodeTestAppMainForm.pas]
+[D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas]
 ModuleType=TSourceModule
 
 [c:\program files (x86)\embarcadero\studio\22.0\SOURCE\RTL\SYS\System.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
-ViewCount=6
-CurrentEditView=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas
+ViewCount=10
+CurrentEditView=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas
 View0=0
 View1=1
 View2=2
 View3=3
 View4=4
 View5=5
+View6=6
+View7=7
+View8=8
+View9=9
 PercentageSizes=1
 Create=1
 Visible=1
@@ -84,9 +103,9 @@ TabDockBottomClients=MessageView=0
 [View0]
 CustomEditViewType=TEditView
 Module=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas
-CursorX=59
-CursorY=2756
-TopLine=2741
+CursorX=24
+CursorY=2170
+TopLine=2143
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -95,9 +114,9 @@ EditViewName=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.pas
 [View1]
 CustomEditViewType=TEditView
 Module=D:\Projects\#Fork\DelphiZXingQRCode\TestApp\DelphiZXingQRCodeTestAppMainForm.pas
-CursorX=56
-CursorY=31
-TopLine=23
+CursorX=10
+CursorY=9
+TopLine=1
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -105,27 +124,71 @@ EditViewName=D:\Projects\#Fork\DelphiZXingQRCode\TestApp\DelphiZXingQRCodeTestAp
 
 [View2]
 CustomEditViewType=TEditView
-Module=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas
+Module=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\VCL\Vcl.Graphics.pas
 CursorX=1
-CursorY=79
-TopLine=61
+CursorY=8152
+TopLine=8172
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas
+EditViewName=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\VCL\Vcl.Graphics.pas
 
 [View3]
 CustomEditViewType=TEditView
+Module=D:\Projects\#Fork\DelphiZXingQRCode\TestAppFMX\DelphiZXingQRCodeTestAppMainForm.pas
+CursorX=49
+CursorY=101
+TopLine=75
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=Borland.FormDesignerView
+
+[View4]
+CustomEditViewType=TEditView
 Module=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.FMX.pas
-CursorX=33
-CursorY=33
-TopLine=19
+CursorX=1
+CursorY=140
+TopLine=1
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.FMX.pas
 
-[View4]
+[View5]
+CustomEditViewType=TEditView
+Module=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.Vcl.pas
+CursorX=15
+CursorY=15
+TopLine=1
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=D:\Projects\#Fork\DelphiZXingQRCode\Source\DelphiZXIngQRCode.Vcl.pas
+
+[View6]
+CustomEditViewType=TEditView
+Module=c:\program files (x86)\embarcadero\studio\22.0\source\rtl\common\System.UITypes.pas
+CursorX=1
+CursorY=459
+TopLine=440
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=c:\program files (x86)\embarcadero\studio\22.0\source\rtl\common\System.UITypes.pas
+
+[View7]
+CustomEditViewType=TEditView
+Module=c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Objects.pas
+CursorX=1
+CursorY=471
+TopLine=434
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Objects.pas
+
+[View8]
 CustomEditViewType=TEditView
 Module=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\RTL\SYS\System.pas
 CursorX=1
@@ -136,12 +199,12 @@ Elisions=
 Bookmarks=
 EditViewName=c:\program files (x86)\embarcadero\studio\22.0\SOURCE\RTL\SYS\System.pas
 
-[View5]
+[View9]
 CustomEditViewType=TEditView
 Module=c:\program files (x86)\embarcadero\studio\22.0\source\fmx\FMX.Graphics.pas
-CursorX=1
-CursorY=5888
-TopLine=5873
+CursorX=12
+CursorY=711
+TopLine=695
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -244,12 +307,12 @@ Visible=0
 Docked=1
 State=0
 Left=8
-Top=1024
-Width=2771
+Top=1052
+Width=9917
 Height=1376
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=2771
+ClientWidth=9917
 ClientHeight=1376
 TBDockHeight=1376
 LRDockWidth=2771
@@ -293,7 +356,12 @@ TBDockHeight=8702
 LRDockWidth=1896
 Dockable=1
 StayOnTop=0
-SplitPos=116
+SplitPos=111
+
+[PropInspDesignerSelection]
+ArrangeBy=Name
+SelectedItem=Caption,
+ExpandedItems=LiveBindings=0,"LiveBindings Designer=0",Margins=0,Padding=0,Position=0,RotationCenter=0,Anchors=0,Scale=0,Size=0,Touch=0,TouchTargetExpansion=0,StyledSettings=0,TextSettings=1,Data=0,Fill=1,Stroke=1,Stroke.Bitmap=0,Stroke.Resource=0,TextSettings.Font=1,TextSettings.Font.Style=0,ActiveTab=0,Corners=1,Fill.Bitmap=1,Fill.Resource=0,Sides=1,Border=0,BorderIcons=0,Constraints=0,FormFactor=0,SystemStatusBar=0,StyleBook=0,Fill.Bitmap.Image=0,TextSettings.FontColorForState=0,Permissions=0,Proxy=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -304,11 +372,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=6347
+Height=8430
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=6347
+ClientHeight=8430
 TBDockHeight=5959
 LRDockWidth=2510
 Dockable=1
@@ -425,11 +493,11 @@ State=0
 Left=0
 Top=0
 Width=2339
-Height=969
+Height=1202
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=969
+ClientHeight=1202
 TBDockHeight=2316
 LRDockWidth=2823
 Dockable=1
@@ -490,11 +558,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=6347
+Height=8430
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=6347
+ClientHeight=8430
 TBDockHeight=4884
 LRDockWidth=7151
 Dockable=1
@@ -630,70 +698,13 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=6347
+Height=8430
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=6347
+ClientHeight=8430
 TBDockHeight=4884
 LRDockWidth=5307
-Dockable=1
-StayOnTop=0
-
-[Memory1]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=4010
-Top=2859
-Width=2422
-Height=3934
-MaxLeft=-5
-MaxTop=-10
-ClientWidth=2339
-ClientHeight=3556
-TBDockHeight=3934
-LRDockWidth=2422
-Dockable=1
-StayOnTop=0
-
-[Memory2]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=6411
-Top=2471
-Width=2604
-Height=3934
-MaxLeft=-5
-MaxTop=-10
-ClientWidth=2521
-ClientHeight=3556
-TBDockHeight=3285
-LRDockWidth=2604
-Dockable=1
-StayOnTop=0
-
-[Memory3]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=4089
-Top=6134
-Width=1714
-Height=3934
-MaxLeft=-5
-MaxTop=-10
-ClientWidth=1630
-ClientHeight=3556
-TBDockHeight=3934
-LRDockWidth=1714
 Dockable=1
 StayOnTop=0
 
@@ -727,8 +738,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=8
-Top=8
+Left=0
+Top=28
 Width=2339
 Height=1473
 MaxLeft=-1

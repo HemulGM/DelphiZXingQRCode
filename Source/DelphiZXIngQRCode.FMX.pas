@@ -12,7 +12,7 @@ type
 
   TZXingQRCodeDraw = class helper for TZXingQRCode
     function GetBitmap(const Size: Integer; Color: TAlphaColor = TAlphaColors.Black; Background: TAlphaColor = TAlphaColors.Null; Kind: TQRKind = TQRKind.Default): TBitmap;
-    function GetPath(Kind: TQRKind = TQRKind.Default): string;
+    function GetPath(Kind: TQRKind = TQRKind.Default; const Size: Single = 500): string;
   end;
 
 implementation
@@ -83,10 +83,9 @@ begin
   end;
 end;
 
-function TZXingQRCodeDraw.GetPath(Kind: TQRKind): string;
+function TZXingQRCodeDraw.GetPath(Kind: TQRKind; const Size: Single): string;
 begin
   var Path := TPathData.Create;
-  var Size := 500;
   Result := '';
   try
     var BitSize := Trunc(Size / Columns);
