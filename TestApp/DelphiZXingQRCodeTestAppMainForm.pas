@@ -20,12 +20,15 @@ type
     edtQuietZone: TEdit;
     Label4: TLabel;
     PaintBox1: TPaintBox;
+    ComboBoxKind: TComboBox;
+    Label5: TLabel;
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure PaintBox1Paint(Sender: TObject);
     procedure edtTextChange(Sender: TObject);
     procedure cmbEncodingChange(Sender: TObject);
     procedure edtQuietZoneChange(Sender: TObject);
+    procedure ComboBoxKindChange(Sender: TObject);
   private
     QRCodeBitmap: TBitmap;
   public
@@ -43,6 +46,11 @@ uses
 {$R *.dfm}
 
 procedure TForm1.cmbEncodingChange(Sender: TObject);
+begin
+  UpdateQR;
+end;
+
+procedure TForm1.ComboBoxKindChange(Sender: TObject);
 begin
   UpdateQR;
 end;
@@ -100,7 +108,7 @@ begin
     end;
 
     //Image
-    var Bitmap := QRCode.GetBitmap(clBlack, clWhite);
+    var Bitmap := QRCode.GetBitmap(400, TQRKind(ComboBoxKind.ItemIndex), clBlack, clWhite);
     try
       QRCodeBitmap.Assign(Bitmap);
     finally

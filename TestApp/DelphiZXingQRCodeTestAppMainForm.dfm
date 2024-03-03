@@ -56,6 +56,13 @@ object Form1: TForm1
     ExplicitWidth = 331
     ExplicitHeight = 260
   end
+  object Label5: TLabel
+    Left = 8
+    Top = 115
+    Width = 20
+    Height = 13
+    Caption = 'Kind'
+  end
   object edtText: TEdit
     Left = 8
     Top = 32
@@ -91,5 +98,22 @@ object Form1: TForm1
     TabOrder = 2
     Text = '4'
     OnChange = edtQuietZoneChange
+  end
+  object ComboBoxKind: TComboBox
+    Left = 8
+    Top = 134
+    Width = 145
+    Height = 21
+    Style = csDropDownList
+    ItemIndex = 0
+    TabOrder = 3
+    Text = 'Default'
+    OnChange = ComboBoxKindChange
+    Items.Strings = (
+      'Default'
+      'Square'
+      'Rounded'
+      'Circle'
+      'Lines')
   end
 end
